@@ -2,22 +2,56 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Empêche le défilement horizontal */
+    /*overflow-x: hidden;
+    overflow: hidden; /* Empêche le défilement horizontal */
 }
 
 header {
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
+    top:0;
     display: flex;
     justify-content: space-between;
     position: fixed; /* Fixe la barre supérieure en haut du site */
+    height: 7%;
     width: 100%;
     z-index: 1000; /* Assurez-vous que la barre supérieure reste au-dessus du contenu */
 }
 
-.logo {
-    font-size: 24px;
+.logo-container {
+    display: grid;
+}
+
+.logo1 {
+    grid-column: 1;
+    grid-row: 1;    font-size: 50px;
+    display: block;
+    width: 75vw;
+    transform-origin: 50% 0;
+    margin: 0;
+    will-change: scale;
+    transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
+}
+
+.logo2 {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 50px;
+    display: block;
+    width: 75vw;
+    transform-origin: 50% 0;
+    margin: 0;
+    will-change: scale;
+    transition: all .5s linear;
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    -ms-transition: all .5s linear;
+    -o-transition: all .5s linear;
 }
 
 nav ul {
@@ -38,14 +72,14 @@ nav ul li a {
 
 .container {
     display: flex;
-    padding-top: 60px; /* Ajoutez un décalage pour la barre supérieure fixée */
+    margin-top: 250px; /* Ajoutez un décalage pour la barre supérieure fixée */
 }
 
 .sidebar {
     background-color: #f4f4f4;
     width: 200px;
     padding: 20px;
-    height: calc(100vh - 60px); /* Hauteur de la fenêtre moins la hauteur de la barre supérieure */
+    height: calc(100vh - 105px); /* Hauteur de la fenêtre moins la hauteur de la barre supérieure */
     overflow-y: auto; /* Permet le défilement vertical indépendant */
 }
 
@@ -70,11 +104,31 @@ nav ul li a {
 .content {
     flex: 1;
     padding: 20px;
-    height: calc(100vh - 60px); /* Hauteur de la fenêtre moins la hauteur de la barre supérieure */
+    height: calc(100vh - 105px); /* Hauteur de la fenêtre moins la hauteur de la barre supérieure */
     overflow-y: auto; /* Permet le défilement vertical indépendant */
+    max-height: calc(100vh - 105px); /* Limite la hauteur maximale de la partie droite */
 }
 
-.contact {
-    background-color: #f4f4f4;
-    padding: 20px;
-}
+.sidebar ul li a {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+  }
+  
+  .sidebar ul li a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .sidebar ul li a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
